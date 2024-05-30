@@ -11,9 +11,12 @@ import {
   isRouteErrorResponse,
 } from '@remix-run/react';
 import favicon from './assets/favicon.svg';
+import icon144 from './assets/hydrogen-144.png';
+import icon152 from './assets/hydrogen-152.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
 import {Layout} from '~/components/Layout';
+import { ManifestLink } from '@remix-pwa/sw';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -100,8 +103,18 @@ export default function App() {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />        
+
+        <link rel="apple-touch-icon" href={icon152} />       
+        <meta name="theme-color" content="white"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />  
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+        <meta name="apple-mobile-web-app-title" content="Hello Hydrogen PWA" /> 
+        <meta name="msapplication-TileImage" content={icon144} />  
+        <meta name="msapplication-TileColor" content="#FFFFFF" />        
+
         <Meta />
+        <ManifestLink manifestUrl="/manifest.webmanifest" /> 
         <Links />
       </head>
       <body>
@@ -135,7 +148,17 @@ export function ErrorBoundary() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+        <link rel="apple-touch-icon" href={icon152} />       
+        <meta name="theme-color" content="white"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />  
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
+        <meta name="apple-mobile-web-app-title" content="Hello Hydrogen PWA" /> 
+        <meta name="msapplication-TileImage" content={icon144} />  
+        <meta name="msapplication-TileColor" content="#FFFFFF" />        
+
         <Meta />
+        <ManifestLink manifestUrl="/manifest.webmanifest" /> 
         <Links />
       </head>
       <body>

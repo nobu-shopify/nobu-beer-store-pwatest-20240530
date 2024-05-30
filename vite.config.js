@@ -3,6 +3,7 @@ import {hydrogen} from '@shopify/hydrogen/vite';
 import {oxygen} from '@shopify/mini-oxygen/vite';
 import {vitePlugin as remix} from '@remix-run/dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { remixPWA } from '@remix-pwa/dev'
 
 export default defineConfig({
   plugins: [
@@ -17,6 +18,9 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    remixPWA({
+      entryWorkerFile: 'entry.worker.js',
+    }),
   ],
   build: {
     // Allow a strict Content-Security-Policy
